@@ -1,0 +1,203 @@
+:root{
+    --mixBlackBlue:#1E202B;
+    --TurquoiseBlue:#009AD8;
+    --CharcoalGray:#323544;
+    --Gray:#BFC1C8;
+}
+body{
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+/*        nav       */
+.navbar-edit{
+    background-color: var(--mixBlackBlue);
+    padding: 30px 0;
+}
+.navbar-edit img{
+    width: 70px;
+}
+.navbar-edit a{
+    text-decoration: none;
+}
+.navbar-edit h1{
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.navbar-edit span{
+    font-size: .625rem;
+    color: #bfc1c8;
+    font-weight: 300;
+}
+.barsHovar{
+    width: 50px;
+    height: 50px;
+}
+.navbar-edit li{
+    list-style: none;
+}
+.navbar-link a{
+    font-size: 14px;
+    font-weight: 400;
+}
+/*        header       */
+header {
+    width: 100%;
+    background: 
+        url('../imgs/banner.png') no-repeat center top,
+        linear-gradient(to bottom, var(--mixBlackBlue) 50%, var(--mixBlackBlue) 50%);
+    background-size: 100% 50%, 100% 100%;
+}
+
+header input{
+    background-color: var(--mixBlackBlue);
+    border: 0;
+    outline: none;
+    padding-right: 120px;
+}
+header button{
+    background-color: var(--TurquoiseBlue);
+    border: 0;
+    outline: none;
+    padding: 10px 40px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+.head-card{
+    background-color: #2D303D;
+    height: 41px;
+}
+.head-card div{
+    color: var(--Gray);
+}
+.body-card{
+    background-color: var(--CharcoalGray);
+}
+.head-body{
+    color: var(--Gray);
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+.degree{
+    font-size: 90px;
+    font-weight: 700;
+}
+.Mist{
+    color: var(--TurquoiseBlue);
+    font-size: 14px;
+    font-weight: 300;
+}
+.icon-degree span{
+    font-size: .875rem;
+    font-weight: 300;
+    text-wrap: nowrap;
+    color: var(--Gray);
+}
+.bg-head-card{
+    background-color: #222530;
+}
+.bg-body-card{
+    background-color: #262936;
+}
+.degree-tom{
+    font-size: 24px;
+    font-weight: 700;
+}
+small{
+    font-size: .875rem;
+    font-weight: 400;
+    color: var(--Gray);
+}
+.card-weather{
+    min-height: 360px;
+}
+footer{
+    background-color: #262936;
+}
+footer input{
+    background-color: var(--mixBlackBlue);
+    border: 0;
+    outline: none;
+    padding-right: 120px;
+}
+footer button{
+    background-color: var(--TurquoiseBlue);
+    border: 0;
+    outline: none;
+    padding: 10px 40px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+.faicon{
+    color: var(--TurquoiseBlue);
+    font-size: 20px;
+    transition: .5s;
+
+}
+.fa-circle-bg{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--mixBlackBlue);
+    transition: .5s;
+}
+.faicon:hover{
+    color: #fff;
+    transition: .5s;
+
+}
+.fa-circle-bg:hover{
+    background-color: var(--TurquoiseBlue);
+    transition: .5s;
+}
+.Copyright{
+    color: var(--Gray);
+}
+/*        media       */
+@media(min-width:768px){
+    .navbar-link a{
+        border: solid var(--mixBlackBlue) 3px;
+        border-top-left-radius: 50rem;
+        border-top-right-radius: 50rem;
+        border-bottom-left-radius: 50rem;
+        border-bottom-right-radius: 50rem;
+        transition: .5s;
+    }
+    .navbar-link a:hover{
+        color: var(--TurquoiseBlue) !important;
+        border-color: var(--TurquoiseBlue);
+        transition: .5s;
+    }
+}
+@media(max-width:768px){
+    .navbar-link{
+        background-color: var(--CharcoalGray);
+        overflow: hidden;
+        height: 0px;
+        transition: .5s;
+    }
+    .navbar-link li{
+        border-bottom: 0.5px rgba(100, 99, 99, 0.33) solid;
+    }
+    .navbar-link a{
+        color: var(--TurquoiseBlue) !important;
+    }
+    .navbar-edit i{
+        padding: 20px;
+        border: solid var(--mixBlackBlue) 2px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .5s;
+    }
+    .navbar-edit i:hover{
+        color: var(--TurquoiseBlue) !important;
+        border-color: var(--TurquoiseBlue);
+        transition: .5s;
+    }
+    .BtnNavBar:checked ~ .navbar-link{
+        height: 350px;
+        transition: .5s;
+    }
+}
