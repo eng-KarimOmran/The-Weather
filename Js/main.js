@@ -6,10 +6,17 @@ function btmFind(){
         })
     }
 }
-async function DisplayLocation(){
-        var response = await fetch('https://api.ipgeolocation.io/ipgeo?apiKey=b4f3ac49de0f401480cdd80a0b9889cc');
-        var IpLocation = await response.json();
-        display(await GetData(IpLocation.city))
+function DisplayLocation(){
+        navigator.geolocation.getCurrentPosition(
+        async function(positione){
+            var latitude = positione.coords.latitude;
+            var longitude = positione.coords.longitude;
+            display(await GetData(`${latitude},${longitude}`))
+        },async function(){
+            var response = await fetch('https://api.ipgeolocation.io/ipgeo?apiKey=b4f3ac49de0f401480cdd80a0b9889cc');
+            var IpLocation = await response.json();
+            display(await GetData(IpLocation.city))
+        })
 }
 function DateNow(TheDate){
     if(TheDate != undefined){
