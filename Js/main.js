@@ -1,3 +1,4 @@
+'use strict'
 function btmFind(){
     btmFind = document.querySelectorAll('.Find')
     for(var i = 0;i < btmFind.length;i++){
@@ -110,6 +111,9 @@ function display(ArryData){
                 </div>`
     document.getElementById('CardsDisplay').innerHTML = contant
 }
+document.getElementById('navbar-link').addEventListener('click',function(){
+    var checkbox = document.getElementById('LinkNav');
+    checkbox.checked = !checkbox.checked;})
 search()
 btmFind()
 DisplayLocation()

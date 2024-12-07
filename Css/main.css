@@ -191,13 +191,13 @@ footer button{
         cursor: pointer;
         transition: .5s;
     }
-    .navbar-edit i:hover{
-        color: var(--TurquoiseBlue) !important;
-        border-color: var(--TurquoiseBlue);
-        transition: .5s;
-    }
     .BtnNavBar:checked ~ .navbar-link{
         height: 350px;
+        transition: .5s;
+    }
+    .BtnNavBar:checked ~ .barsHovar label i{
+        color: var(--TurquoiseBlue) !important;
+        border-color: var(--TurquoiseBlue);
         transition: .5s;
     }
 }
