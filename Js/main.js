@@ -1,7 +1,7 @@
 'use strict'
 function btmFind(){
     btmFind = document.querySelectorAll('.Find')
-    for(var i = 0;i < btmFind.length;i++){
+    for(let i = 0;i < btmFind.length;i++){
         btmFind[i].addEventListener('click',function(){
             search()
         })
@@ -10,21 +10,22 @@ function btmFind(){
 function DisplayLocation(){
         navigator.geolocation.getCurrentPosition(
         async function(positione){
-            var latitude = positione.coords.latitude;
-            var longitude = positione.coords.longitude;
-            display(await GetData(`${latitude},${longitude}`))
+            const latitude = positione.coords.latitude;
+            const longitude = positione.coords.longitude;
+            const location = `${latitude},${longitude}`;
+            display(await GetData(location))
         },async function(){
-            var response = await fetch('https://api.ipgeolocation.io/ipgeo?apiKey=b4f3ac49de0f401480cdd80a0b9889cc');
-            var IpLocation = await response.json();
-            display(await GetData(IpLocation.city))
+            const response = await fetch('https://api.ipgeolocation.io/ipgeo?apiKey=b4f3ac49de0f401480cdd80a0b9889cc');
+            const IpLocation = await response.json();
+            display(await GetData(IpLocation.country_name))
         })
 }
 function DateNow(TheDate){
     if(TheDate != undefined){
-        var CurrentDate = new Date(TheDate);
-        var DayName = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(CurrentDate);
-        var MonthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(CurrentDate);
-        var DateNow = {
+        const CurrentDate = new Date(TheDate);
+        const DayName = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(CurrentDate);
+        const MonthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(CurrentDate);
+        const DateNow = {
             Day:DayName,
             Month:MonthName
         }
@@ -32,8 +33,8 @@ function DateNow(TheDate){
     }
 }
 async function GetData(state) {
-        var Request = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7d77b96c972b4d119a3151101212704&q=${state}&days=3`);
-        var data = await Request.json();
+        const Request = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7d77b96c972b4d119a3151101212704&q=${state}&days=3`);
+        const data = await Request.json();
         if(data.error != undefined){
             DisplayLocation()
         }else{
@@ -41,13 +42,13 @@ async function GetData(state) {
         }
 }
 function search(){
-    var InputSearch = document.querySelectorAll('[placeholder="Find your locathion"]')
-    for(var i = 0;i < InputSearch.length;i++){
+    const InputSearch = document.querySelectorAll('[placeholder="Find your locathion"]')
+    for(let i = 0;i < InputSearch.length;i++){
         InputSearch[i].addEventListener('input',async function(){
             if(this.value.length < 3){
                 DisplayLocation();
             }else{
-                var data = await GetData(this.value)
+                const data = await GetData(this.value)
                 if(data.error == undefined){
                     display(data)
                 }
@@ -56,7 +57,7 @@ function search(){
     }
 }
 function display(ArryData){
-    var contant = `<div class="col-12 col-lg-4">
+    const contant = `<div class="col-12 col-lg-4">
                     <div class="head-card rounded-top-3 d-flex align-items-center">
                         <div class="container d-flex justify-content-between align-items-center">
                             <div>${DateNow(ArryData.current?.last_updated)?.Day}</div>
@@ -112,8 +113,9 @@ function display(ArryData){
     document.getElementById('CardsDisplay').innerHTML = contant
 }
 document.getElementById('navbar-link').addEventListener('click',function(){
-    var checkbox = document.getElementById('LinkNav');
-    checkbox.checked = !checkbox.checked;})
+    const checkbox = document.getElementById('LinkNav');
+    checkbox.checked = !checkbox.checked;
+})
 search()
 btmFind()
 DisplayLocation()
